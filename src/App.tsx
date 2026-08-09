@@ -1,14 +1,11 @@
-import './App.css'
+import "./App.css";
 
 function App() {
-
   return (
     <>
-      <section id="center">
-
-      </section>
+      <section id="center"></section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
