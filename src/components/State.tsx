@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
+import type { StateConsts } from "../config/constants";
+import "./State.css";
 
-type StateProps = {
-  name: string;
-  framePaths: Array<string>;
-};
+type StateProps = StateConsts & {};
 
-function State({ name, framePaths }: StateProps) {
+function State({ name, framePaths, top, left, width }: StateProps) {
   const [isHovering, setIsHovering] = useState<boolean>(false);
   const [currFrame, setCurrFrame] = useState<number>(0);
 
@@ -22,16 +21,18 @@ function State({ name, framePaths }: StateProps) {
     if (!isHovering) return;
     const timer = setInterval(() => {
       setCurrFrame((prev) => (prev + 1) % framePaths.length);
-    }, 100);
+    }, 150);
     return () => clearInterval(timer);
   }, [isHovering, framePaths.length]);
 
   return (
     <img
+      className="state-map"
       src={framePaths[currFrame]}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       alt={`rough outline of ${name}`}
+      style={{ top, left, width }}
     />
   );
 }

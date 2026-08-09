@@ -1,0 +1,7 @@
+.state-map {
+    position: absolute;
+    user-select: none;
+    -webkit-user-drag: none;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+}
